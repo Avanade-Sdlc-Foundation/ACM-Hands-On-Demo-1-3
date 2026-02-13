@@ -5,60 +5,59 @@ applyTo: '**/*.java'
 
 # Java Development
 
-## General Instructions
+## 一般的な指示事項
 
-- First, prompt the user if they want to integrate static analysis tools (SonarQube, PMD, Checkstyle)
-  into their project setup. If yes, provide guidance on tool selection and configuration.
-- If the user declines static analysis tools or wants to proceed without them, continue with implementing the Best practices, bug patterns and code smell prevention guidelines outlined below.
-- Address code smells proactively during development rather than accumulating technical debt.
-- Focus on readability, maintainability, and performance when refactoring identified issues.
-- Use IDE / Code editor reported warnings and suggestions to catch common patterns early in development.
+- まず、静的解析ツール（SonarQube、PMD、Checkstyle）をプロジェクトセットアップに統合したいかどうかをユーザーに確認してください。統合する場合は、ツールの選択と設定に関するガイダンスを提供してください。
+- ユーザーが静的解析ツールを使用しない場合、または静的解析ツールなしで進める場合は、以下に記載されているベストプラクティス、バグパターン、コードスメル防止のガイドラインに従って実装を続けてください。
+- 技術的負債を蓄積するのではなく、開発中にコードスメルに積極的に対処してください。
+- 特定された問題をリファクタリングする際は、可読性、保守性、パフォーマンスに重点を置いてください。
+- IDE / コードエディタが報告する警告や提案を使用して、開発の初期段階で一般的なパターンを検出してください。
 
-## Best practices
+## ベストプラクティス
 
-- **Records**: For classes primarily intended to store data (e.g., DTOs, immutable data structures), **Java Records should be used instead of traditional classes**.
-- **Pattern Matching**: Utilize pattern matching for `instanceof` and `switch` expression to simplify conditional logic and type casting.
-- **Type Inference**: Use `var` for local variable declarations to improve readability, but only when the type is explicitly clear from the right-hand side of the expression.
-- **Immutability**: Favor immutable objects. Make classes and fields `final` where possible. Use collections from `List.of()`/`Map.of()` for fixed data. Use `Stream.toList()` to create immutable lists.
-- **Streams and Lambdas**: Use the Streams API and lambda expressions for collection processing. Employ method references (e.g., `stream.map(Foo::toBar)`).
-- **Null Handling**: Avoid returning or accepting `null`. Use `Optional<T>` for possibly-absent values and `Objects` utility methods like `equals()` and `requireNonNull()`.
+- **Records**: 主にデータの保存を目的とするクラス（DTOや不変データ構造など）には、**従来のクラスの代わりにJava Recordsを使用する必要があります**。
+- **Pattern Matching**: `instanceof`や`switch`式のパターンマッチングを活用して、条件ロジックと型キャストを簡素化してください。
+- **Type Inference**: ローカル変数宣言には`var`を使用して可読性を向上させますが、式の右辺から型が明示的に明確な場合のみ使用してください。
+- **Immutability**: 不変オブジェクトを優先してください。可能な限りクラスとフィールドを`final`にしてください。固定データには`List.of()`/`Map.of()`のコレクションを使用してください。不変リストを作成するには`Stream.toList()`を使用してください。
+- **Streams and Lambdas**: コレクション処理にはStreams APIとラムダ式を使用してください。メソッド参照を使用してください（例：`stream.map(Foo::toBar)`）。
+- **Null Handling**: `null`を返したり受け入れたりすることを避けてください。値が存在しない可能性がある場合は`Optional<T>`を使用し、`Objects`ユーティリティメソッド（`equals()`や`requireNonNull()`など）を使用してください。
 
-### Naming Conventions
+### 命名規則
 
-- Follow Google's Java style guide:
-  - `UpperCamelCase` for class and interface names.
-  - `lowerCamelCase` for method and variable names.
-  - `UPPER_SNAKE_CASE` for constants.
-  - `lowercase` for package names.
-- Use nouns for classes (`UserService`) and verbs for methods (`getUserById`).
-- Avoid abbreviations and Hungarian notation.
+- GoogleのJavaスタイルガイドに従ってください：
+  - クラス名とインターフェース名には`UpperCamelCase`を使用します。
+  - メソッド名と変数名には`lowerCamelCase`を使用します。
+  - 定数には`UPPER_SNAKE_CASE`を使用します。
+  - パッケージ名には`lowercase`を使用します。
+- クラスには名詞を使用し（`UserService`）、メソッドには動詞を使用してください（`getUserById`）。
+- 略語とハンガリアン記法は避けてください。
 
-### Bug Patterns
+### バグパターン
 
 | Rule ID | Description                                                 | Example / Notes                                                                                  |
 | ------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `S2095` | Resources should be closed                                  | Use try-with-resources when working with streams, files, sockets, etc.                           |
-| `S1698` | Objects should be compared with `.equals()` instead of `==` | Especially important for Strings and boxed primitives.                                           |
-| `S1905` | Redundant casts should be removed                           | Clean up unnecessary or unsafe casts.                                                            |
-| `S3518` | Conditions should not always evaluate to true or false      | Watch for infinite loops or if-conditions that never change.                                     |
-| `S108`  | Unreachable code should be removed                          | Code after `return`, `throw`, etc., must be cleaned up.                                          |
+| `S2095` | リソースはクローズする必要があります                                  | ストリーム、ファイル、ソケットなどを扱う場合はtry-with-resourcesを使用してください。                           |
+| `S1698` | オブジェクトは`==`ではなく`.equals()`で比較する必要があります            | 特にStringやボックス化されたプリミティブ型において重要です。                                           |
+| `S1905` | 冗長なキャストは削除する必要があります                                 | 不要または安全でないキャストをクリーンアップしてください。                                                            |
+| `S3518` | 条件は常にtrueまたはfalseと評価されるべきではありません                  | 無限ループや変更されない条件に注意してください。                                     |
+| `S108`  | 到達不可能なコードは削除する必要があります                              | `return`、`throw`などの後のコードはクリーンアップする必要があります。                                          |
 
-## Code Smells
+## コードスメル
 
 | Rule ID | Description                                            | Example / Notes                                                               |
 | ------- | ------------------------------------------------------ | ----------------------------------------------------------------------------- |
-| `S107`  | Methods should not have too many parameters            | Refactor into helper classes or use builder pattern.                          |
-| `S121`  | Duplicated blocks of code should be removed            | Consolidate logic into shared methods.                                        |
-| `S138`  | Methods should not be too long                         | Break complex logic into smaller, testable units.                             |
-| `S3776` | Cognitive complexity should be reduced                 | Simplify nested logic, extract methods, avoid deep `if` trees.                |
-| `S1192` | String literals should not be duplicated               | Replace with constants or enums.                                              |
-| `S1854` | Unused assignments should be removed                   | Avoid dead variables—remove or refactor.                                      |
-| `S109`  | Magic numbers should be replaced with constants        | Improves readability and maintainability.                                     |
-| `S1188` | Catch blocks should not be empty                       | Always log or handle exceptions meaningfully.                                 |
+| `S107`  | メソッドのパラメータが多すぎてはいけません                         | ヘルパークラスにリファクタリングするか、builderパターンを使用してください。                          |
+| `S121`  | 重複したコードブロックは削除する必要があります                      | ロジックを共有メソッドに統合してください。                                        |
+| `S138`  | メソッドが長すぎてはいけません                                  | 複雑なロジックを小さくテスト可能なユニットに分割してください。                             |
+| `S3776` | 認知的複雑性を軽減する必要があります                              | ネストされたロジックを簡素化し、メソッドを抽出し、深い`if`ツリーを避けてください。                |
+| `S1192` | 文字列リテラルを重複させてはいけません                             | 定数またはenumで置き換えてください。                                              |
+| `S1854` | 未使用の代入は削除する必要があります                               | デッド変数を避ける—削除またはリファクタリングしてください。                                      |
+| `S109`  | マジックナンバーは定数で置き換える必要があります                      | 可読性と保守性を向上させます。                                     |
+| `S1188` | catchブロックを空にしてはいけません                              | 常に意味のある方法で例外をログまたは処理してください。                                 |
 
-## Build and Verification
+## ビルドと検証
 
-- After adding or modifying code, verify the project continues to build successfully.
-- If the project uses Maven, run `mvn clean install`.
-- If the project uses Gradle, run `./gradlew build` (or `gradlew.bat build` on Windows).
-- Ensure all tests pass as part of the build.
+- コードを追加または変更した後、プロジェクトが引き続き正常にビルドされることを確認してください。
+- プロジェクトがMavenを使用している場合は、`mvn clean install`を実行してください。
+- プロジェクトがGradleを使用している場合は、`./gradlew build`（Windowsでは`gradlew.bat build`）を実行してください。
+- ビルドの一環としてすべてのテストが合格することを確認してください。
