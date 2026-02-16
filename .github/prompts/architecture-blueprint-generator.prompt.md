@@ -1,321 +1,322 @@
 ---
-description: 'Comprehensive project architecture blueprint generator that analyzes codebases to create detailed architectural documentation. Automatically detects technology stacks and architectural patterns, generates visual diagrams, documents implementation patterns, and provides extensible blueprints for maintaining architectural consistency and guiding new development.'
+description: 'コードベースを分析して詳細なアーキテクチャ文書を作成する包括的なプロジェクトアーキテクチャブループリント生成器。技術スタックとアーキテクチャパターンを自動検出し、視覚的な図表を生成し、実装パターンを文書化し、アーキテクチャの一貫性を維持し新規開発を導くための拡張可能なブループリントを提供する。'
+agent: 'agent'
 ---
 
-# Comprehensive Project Architecture Blueprint Generator
+# 包括的プロジェクトアーキテクチャブループリント生成器
 
-## Configuration Variables
-${PROJECT_TYPE="Auto-detect|.NET|Java|React|Angular|Python|Node.js|Flutter|Other"} <!-- Primary technology -->
-${ARCHITECTURE_PATTERN="Auto-detect|Clean Architecture|Microservices|Layered|MVVM|MVC|Hexagonal|Event-Driven|Serverless|Monolithic|Other"} <!-- Primary architectural pattern -->
-${DIAGRAM_TYPE="C4|UML|Flow|Component|None"} <!-- Architecture diagram type -->
-${DETAIL_LEVEL="High-level|Detailed|Comprehensive|Implementation-Ready"} <!-- Level of detail to include -->
-${INCLUDES_CODE_EXAMPLES=true|false} <!-- Include sample code to illustrate patterns -->
-${INCLUDES_IMPLEMENTATION_PATTERNS=true|false} <!-- Include detailed implementation patterns -->
-${INCLUDES_DECISION_RECORDS=true|false} <!-- Include architectural decision records -->
-${FOCUS_ON_EXTENSIBILITY=true|false} <!-- Emphasize extension points and patterns -->
+## 設定変数
+${PROJECT_TYPE="自動検出|.NET|Java|React|Angular|Python|Node.js|Flutter|その他"} <!-- 主要技術 -->
+${ARCHITECTURE_PATTERN="自動検出|クリーンアーキテクチャ|マイクロサービス|レイヤード|MVVM|MVC|六角形|イベント駆動|サーバーレス|モノリシック|その他"} <!-- 主要アーキテクチャパターン -->
+${DIAGRAM_TYPE="C4|UML|フロー|コンポーネント|なし"} <!-- アーキテクチャ図表の種類 -->
+${DETAIL_LEVEL="高レベル|詳細|包括的|実装対応"} <!-- 含める詳細レベル -->
+${INCLUDES_CODE_EXAMPLES=true|false} <!-- パターンを説明するサンプルコードを含める -->
+${INCLUDES_IMPLEMENTATION_PATTERNS=true|false} <!-- 詳細な実装パターンを含める -->
+${INCLUDES_DECISION_RECORDS=true|false} <!-- アーキテクチャ決定記録を含める -->
+${FOCUS_ON_EXTENSIBILITY=true|false} <!-- 拡張ポイントとパターンを重視する -->
 
-## Generated Prompt
+## 生成されたプロンプト
 
-"Create a comprehensive 'Project_Architecture_Blueprint.md' document that thoroughly analyzes the architectural patterns in the codebase to serve as a definitive reference for maintaining architectural consistency. Use the following approach:
+"アーキテクチャの一貫性を維持するための決定的なリファレンスとして機能する、コードベースのアーキテクチャパターンを徹底的に分析した包括的な'Project_Architecture_Blueprint.md'文書を作成してください。以下のアプローチを使用してください：
 
-### 1. Architecture Detection and Analysis
-- ${PROJECT_TYPE == "Auto-detect" ? "Analyze the project structure to identify all technology stacks and frameworks in use by examining:
-  - Project and configuration files
-  - Package dependencies and import statements
-  - Framework-specific patterns and conventions
-  - Build and deployment configurations" : "Focus on ${PROJECT_TYPE} specific patterns and practices"}
+### 1. アーキテクチャ検出と分析
+- ${PROJECT_TYPE == "自動検出" ? "以下を調査してプロジェクト構造を分析し、使用されているすべての技術スタックとフレームワークを特定する：
+  - プロジェクトと設定ファイル
+  - パッケージ依存関係とインポートステートメント
+  - フレームワーク固有のパターンと規約
+  - ビルドとデプロイメント設定" : "${PROJECT_TYPE}固有のパターンと実践に焦点を当てる"}
   
-- ${ARCHITECTURE_PATTERN == "Auto-detect" ? "Determine the architectural pattern(s) by analyzing:
-  - Folder organization and namespacing
-  - Dependency flow and component boundaries
-  - Interface segregation and abstraction patterns
-  - Communication mechanisms between components" : "Document how the ${ARCHITECTURE_PATTERN} architecture is implemented"}
+- ${ARCHITECTURE_PATTERN == "自動検出" ? "以下を分析してアーキテクチャパターンを決定する：
+  - フォルダ構成と名前空間
+  - 依存関係フローとコンポーネント境界
+  - インターフェース分離と抽象化パターン
+  - コンポーネント間通信メカニズム" : "${ARCHITECTURE_PATTERN}アーキテクチャの実装方法を文書化する"}
 
-### 2. Architectural Overview
-- Provide a clear, concise explanation of the overall architectural approach
-- Document the guiding principles evident in the architectural choices
-- Identify architectural boundaries and how they're enforced
-- Note any hybrid architectural patterns or adaptations of standard patterns
+### 2. アーキテクチャ概要
+- 全体的なアーキテクチャアプローチの明確で簡潔な説明を提供する
+- アーキテクチャの選択に明らかな指導原則を文書化する
+- アーキテクチャ境界とそれらの強制方法を特定する
+- ハイブリッドアーキテクチャパターンや標準パターンの適応に注意する
 
-### 3. Architecture Visualization
-${DIAGRAM_TYPE != "None" ? `Create ${DIAGRAM_TYPE} diagrams at multiple levels of abstraction:
-- High-level architectural overview showing major subsystems
-- Component interaction diagrams showing relationships and dependencies
-- Data flow diagrams showing how information moves through the system
-- Ensure diagrams accurately reflect the actual implementation, not theoretical patterns` : "Describe the component relationships based on actual code dependencies, providing clear textual explanations of:
-- Subsystem organization and boundaries
-- Dependency directions and component interactions
-- Data flow and process sequences"}
+### 3. アーキテクチャの視覚化
+${DIAGRAM_TYPE != "なし" ? `複数の抽象レベルで${DIAGRAM_TYPE}図表を作成する：
+- 主要サブシステムを示す高レベルアーキテクチャ概要
+- 関係と依存関係を示すコンポーネント間相互作用図
+- システム内で情報がどのように移動するかを示すデータフロー図
+- 図表が理論的パターンではなく、実際の実装を正確に反映することを保証する` : "実際のコード依存関係に基づいてコンポーネント関係を説明し、以下の明確なテキスト説明を提供する：
+- サブシステム構成と境界
+- 依存関係の方向とコンポーネント間相互作用
+- データフローとプロセスシーケンス"}
 
-### 4. Core Architectural Components
-For each architectural component discovered in the codebase:
+### 4. コアアーキテクチャコンポーネント
+コードベースで発見された各アーキテクチャコンポーネントについて：
 
-- **Purpose and Responsibility**:
-  - Primary function within the architecture
-  - Business domains or technical concerns addressed
-  - Boundaries and scope limitations
+- **目的と責任**：
+  - アーキテクチャ内の主要機能
+  - 対応するビジネスドメインまたは技術的関心事
+  - 境界と範囲の制限
 
-- **Internal Structure**:
-  - Organization of classes/modules within the component
-  - Key abstractions and their implementations
-  - Design patterns utilized
+- **内部構造**：
+  - コンポーネント内のクラス/モジュール構成
+  - 主要な抽象化とその実装
+  - 利用されているデザインパターン
 
-- **Interaction Patterns**:
-  - How the component communicates with others
-  - Interfaces exposed and consumed
-  - Dependency injection patterns
-  - Event publishing/subscription mechanisms
+- **相互作用パターン**：
+  - コンポーネントが他とどのように通信するか
+  - 公開され、消費されるインターフェース
+  - 依存関係注入パターン
+  - イベント公開/購読メカニズム
 
-- **Evolution Patterns**:
-  - How the component can be extended
-  - Variation points and plugin mechanisms
-  - Configuration and customization approaches
+- **進化パターン**：
+  - コンポーネントを拡張する方法
+  - バリエーションポイントとプラグインメカニズム
+  - 設定とカスタマイゼーションアプローチ
 
-### 5. Architectural Layers and Dependencies
-- Map the layer structure as implemented in the codebase
-- Document the dependency rules between layers
-- Identify abstraction mechanisms that enable layer separation
-- Note any circular dependencies or layer violations
-- Document dependency injection patterns used to maintain separation
+### 5. アーキテクチャレイヤーと依存関係
+- コードベースで実装されたレイヤー構造をマッピングする
+- レイヤー間の依存関係ルールを文書化する
+- レイヤー分離を可能にする抽象化メカニズムを特定する
+- 循環依存関係やレイヤー違反を注意する
+- 分離を維持するために使用される依存関係注入パターンを文書化する
 
-### 6. Data Architecture
-- Document domain model structure and organization
-- Map entity relationships and aggregation patterns
-- Identify data access patterns (repositories, data mappers, etc.)
-- Document data transformation and mapping approaches
-- Note caching strategies and implementations
-- Document data validation patterns
+### 6. データアーキテクチャ
+- ドメインモデル構造と構成を文書化する
+- エンティティ関係と集約パターンをマッピングする
+- データアクセスパターン（リポジトリ、データマッパーなど）を特定する
+- データ変換とマッピングアプローチを文書化する
+- キャッシュ戦略と実装を注意する
+- データ検証パターンを文書化する
 
-### 7. Cross-Cutting Concerns Implementation
-Document implementation patterns for cross-cutting concerns:
+### 7. 横断的関心事の実装
+横断的関心事の実装パターンを文書化：
 
-- **Authentication & Authorization**:
-  - Security model implementation
-  - Permission enforcement patterns
-  - Identity management approach
-  - Security boundary patterns
+- **認証と許可**：
+  - セキュリティモデル実装
+  - 権限強制パターン
+  - アイデンティティ管理アプローチ
+  - セキュリティ境界パターン
 
-- **Error Handling & Resilience**:
-  - Exception handling patterns
-  - Retry and circuit breaker implementations
-  - Fallback and graceful degradation strategies
-  - Error reporting and monitoring approaches
+- **エラーハンドリングと復旧力**：
+  - 例外処理パターン
+  - 再試行とサーキットブレーカー実装
+  - フォールバックとグレースフルデグラデーション戦略
+  - エラーレポーティングと監視アプローチ
 
-- **Logging & Monitoring**:
-  - Instrumentation patterns
-  - Observability implementation
-  - Diagnostic information flow
-  - Performance monitoring approach
+- **ログと監視**：
+  - インストゥルメンテーションパターン
+  - 可観測性実装
+  - 診断情報フロー
+  - パフォーマンス監視アプローチ
 
-- **Validation**:
-  - Input validation strategies
-  - Business rule validation implementation
-  - Validation responsibility distribution
-  - Error reporting patterns
+- **検証**：
+  - 入力検証戦略
+  - ビジネスルール検証実装
+  - 検証責任の配分
+  - エラーレポーティングパターン
 
-- **Configuration Management**:
-  - Configuration source patterns
-  - Environment-specific configuration strategies
-  - Secret management approach
-  - Feature flag implementation
+- **設定管理**：
+  - 設定ソースパターン
+  - 環境固有設定戦略
+  - シークレット管理アプローチ
+  - 機能フラグ実装
 
-### 8. Service Communication Patterns
-- Document service boundary definitions
-- Identify communication protocols and formats
-- Map synchronous vs. asynchronous communication patterns
-- Document API versioning strategies
-- Identify service discovery mechanisms
-- Note resilience patterns in service communication
+### 8. サービス通信パターン
+- サービス境界定義を文書化する
+- 通信プロトコルとフォーマットを特定する
+- 同期 vs. 非同期通信パターンをマッピングする
+- APIバージョニング戦略を文書化する
+- サービス探索メカニズムを特定する
+- サービス通信の復旧力パターンを注意する
 
-### 9. Technology-Specific Architectural Patterns
-${PROJECT_TYPE == "Auto-detect" ? "For each detected technology stack, document specific architectural patterns:" : `Document ${PROJECT_TYPE}-specific architectural patterns:`}
+### 9. 技術固有アーキテクチャパターン
+${PROJECT_TYPE == "自動検出" ? "検出された各技術スタックについて、特定のアーキテクチャパターンを文書化してください：" : `${PROJECT_TYPE}固有のアーキテクチャパターンを文書化してください：`}
 
-${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "Auto-detect") ? 
-"#### .NET Architectural Patterns (if detected)
-- Host and application model implementation
-- Middleware pipeline organization
-- Framework service integration patterns
-- ORM and data access approaches
-- API implementation patterns (controllers, minimal APIs, etc.)
-- Dependency injection container configuration" : ""}
+${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "自動検出") ? 
+"#### .NETアーキテクチャパターン（検出された場合）
+- ホストとアプリケーションモデル実装
+- ミドルウェアパイプライン構成
+- フレームワークサービス統合パターン
+- ORMとデータアクセスアプローチ
+- API実装パターン（コントローラー、ミニマルAPIなど）
+- 依存関係注入コンテナ設定" : ""}
 
-${(PROJECT_TYPE == "Java" || PROJECT_TYPE == "Auto-detect") ? 
-"#### Java Architectural Patterns (if detected)
-- Application container and bootstrap process
-- Dependency injection framework usage (Spring, CDI, etc.)
-- AOP implementation patterns
-- Transaction boundary management
-- ORM configuration and usage patterns
-- Service implementation patterns" : ""}
+${(PROJECT_TYPE == "Java" || PROJECT_TYPE == "自動検出") ? 
+"#### Javaアーキテクチャパターン（検出された場合）
+- アプリケーションコンテナとブートストラッププロセス
+- 依存関係注入フレームワーク使用（Spring、CDIなど）
+- AOP実装パターン
+- トランザクション境界管理
+- ORM設定と使用パターン
+- サービス実装パターン" : ""}
 
-${(PROJECT_TYPE == "React" || PROJECT_TYPE == "Auto-detect") ? 
-"#### React Architectural Patterns (if detected)
-- Component composition and reuse strategies
-- State management architecture
-- Side effect handling patterns
-- Routing and navigation approach
-- Data fetching and caching patterns
-- Rendering optimization strategies" : ""}
+${(PROJECT_TYPE == "React" || PROJECT_TYPE == "自動検出") ? 
+"#### Reactアーキテクチャパターン（検出された場合）
+- コンポーネント構成と再利用戦略
+- 状態管理アーキテクチャ
+- 副作用処理パターン
+- ルーティングとナビゲーションアプローチ
+- データ取得とキャッシュパターン
+- レンダリング最適化戦略" : ""}
 
-${(PROJECT_TYPE == "Angular" || PROJECT_TYPE == "Auto-detect") ? 
-"#### Angular Architectural Patterns (if detected)
-- Module organization strategy
-- Component hierarchy design
-- Service and dependency injection patterns
-- State management approach
-- Reactive programming patterns
-- Route guard implementation" : ""}
+${(PROJECT_TYPE == "Angular" || PROJECT_TYPE == "自動検出") ? 
+"#### Angularアーキテクチャパターン（検出された場合）
+- モジュール構成戦略
+- コンポーネント階層設計
+- サービスと依存関係注入パターン
+- 状態管理アプローチ
+- リアクティブプログラミングパターン
+- ルートガード実装" : ""}
 
-${(PROJECT_TYPE == "Python" || PROJECT_TYPE == "Auto-detect") ? 
-"#### Python Architectural Patterns (if detected)
-- Module organization approach
-- Dependency management strategy
-- OOP vs. functional implementation patterns
-- Framework integration patterns
-- Asynchronous programming approach" : ""}
+${(PROJECT_TYPE == "Python" || PROJECT_TYPE == "自動検出") ? 
+"#### Pythonアーキテクチャパターン（検出された場合）
+- モジュール構成アプローチ
+- 依存関係管理戦略
+- OOP vs. 関数型実装パターン
+- フレームワーク統合パターン
+- 非同期プログラミングアプローチ" : ""}
 
-### 10. Implementation Patterns
+### 10. 実装パターン
 ${INCLUDES_IMPLEMENTATION_PATTERNS ? 
-"Document concrete implementation patterns for key architectural components:
+"主要アーキテクチャコンポーネントの具体的実装パターンを文書化してください：
 
-- **Interface Design Patterns**:
-  - Interface segregation approaches
-  - Abstraction level decisions
-  - Generic vs. specific interface patterns
-  - Default implementation patterns
+- **インターフェース設計パターン**：
+  - インターフェース分離アプローチ
+  - 抽象化レベル決定
+  - ジェネリック vs. 特定インターフェースパターン
+  - デフォルト実装パターン
 
-- **Service Implementation Patterns**:
-  - Service lifetime management
-  - Service composition patterns
-  - Operation implementation templates
-  - Error handling within services
+- **サービス実装パターン**：
+  - サービスライフタイム管理
+  - サービス構成パターン
+  - 操作実装テンプレート
+  - サービス内エラー処理
 
-- **Repository Implementation Patterns**:
-  - Query pattern implementations
-  - Transaction management
-  - Concurrency handling
-  - Bulk operation patterns
+- **リポジトリ実装パターン**：
+  - クエリパターン実装
+  - トランザクション管理
+  - 同時実行処理
+  - バルク操作パターン
 
-- **Controller/API Implementation Patterns**:
-  - Request handling patterns
-  - Response formatting approaches
-  - Parameter validation
-  - API versioning implementation
+- **コントローラー/API実装パターン**：
+  - リクエスト処理パターン
+  - レスポンスフォーマットアプローチ
+  - パラメータ検証
+  - APIバージョニング実装
 
-- **Domain Model Implementation**:
-  - Entity implementation patterns
-  - Value object patterns
-  - Domain event implementation
-  - Business rule enforcement" : "Mention that detailed implementation patterns vary across the codebase."}
+- **ドメインモデル実装**：
+  - エンティティ実装パターン
+  - 値オブジェクトパターン
+  - ドメインイベント実装
+  - ビジネスルール強制" : "詳細な実装パターンがコードベース全体で異なることに言及してください。"}
 
-### 11. Testing Architecture
-- Document testing strategies aligned with the architecture
-- Identify test boundary patterns (unit, integration, system)
-- Map test doubles and mocking approaches
-- Document test data strategies
-- Note testing tools and frameworks integration
+### 11. テストアーキテクチャ
+- アーキテクチャと整合したテスト戦略を文書化する
+- テスト境界パターン（ユニット、統合、システム）を特定する
+- テストダブルとモッキングアプローチをマッピングする
+- テストデータ戦略を文書化する
+- テストツールとフレームワーク統合を注意する
 
-### 12. Deployment Architecture
-- Document deployment topology derived from configuration
-- Identify environment-specific architectural adaptations
-- Map runtime dependency resolution patterns
-- Document configuration management across environments
-- Identify containerization and orchestration approaches
-- Note cloud service integration patterns
+### 12. デプロイメントアーキテクチャ
+- 設定から導出されたデプロイメントトポロジを文書化する
+- 環境固有アーキテクチャ適応を特定する
+- ランタイム依存関係解決パターンをマッピングする
+- 環境間の設定管理を文書化する
+- コンテナ化とオーケストレーションアプローチを特定する
+- クラウドサービス統合パターンを注意する
 
-### 13. Extension and Evolution Patterns
+### 13. 拡張と進化パターン
 ${FOCUS_ON_EXTENSIBILITY ? 
-"Provide detailed guidance for extending the architecture:
+"アーキテクチャを拡張するための詳細ガイダンスを提供してください：
 
-- **Feature Addition Patterns**:
-  - How to add new features while preserving architectural integrity
-  - Where to place new components by type
-  - Dependency introduction guidelines
-  - Configuration extension patterns
+- **機能追加パターン**：
+  - アーキテクチャの整合性を保ちながら新機能を追加する方法
+  - タイプ別に新コンポーネントを配置する場所
+  - 依存関係導入ガイドライン
+  - 設定拡張パターン
 
-- **Modification Patterns**:
-  - How to safely modify existing components
-  - Strategies for maintaining backward compatibility
-  - Deprecation patterns
-  - Migration approaches
+- **変更パターン**：
+  - 既存コンポーネントを安全に変更する方法
+  - 下位互換性を維持する戦略
+  - 非推奨パターン
+  - 移行アプローチ
 
-- **Integration Patterns**:
-  - How to integrate new external systems
-  - Adapter implementation patterns
-  - Anti-corruption layer patterns
-  - Service facade implementation" : "Document key extension points in the architecture."}
+- **統合パターン**：
+  - 新しい外部システムと統合する方法
+  - アダプター実装パターン
+  - アンチコラプションレイヤーパターン
+  - サービスファサード実装" : "アーキテクチャの主要拡張ポイントを文書化してください。"}
 
 ${INCLUDES_CODE_EXAMPLES ? 
-"### 14. Architectural Pattern Examples
-Extract representative code examples that illustrate key architectural patterns:
+"### 14. アーキテクチャパターン例
+主要アーキテクチャパターンを説明する代表的コード例を抽出してください：
 
-- **Layer Separation Examples**:
-  - Interface definition and implementation separation
-  - Cross-layer communication patterns
-  - Dependency injection examples
+- **レイヤー分離例**：
+  - インターフェース定義と実装分離
+  - レイヤー間通信パターン
+  - 依存関係注入例
 
-- **Component Communication Examples**:
-  - Service invocation patterns
-  - Event publication and handling
-  - Message passing implementation
+- **コンポーネント通信例**：
+  - サービス呼び出しパターン
+  - イベント公開と処理
+  - メッセージパッシング実装
 
-- **Extension Point Examples**:
-  - Plugin registration and discovery
-  - Extension interface implementations
-  - Configuration-driven extension patterns
+- **拡張ポイント例**：
+  - プラグイン登録と探索
+  - 拡張インターフェース実装
+  - 設定駆動拡張パターン
 
-Include enough context with each example to show the pattern clearly, but keep examples concise and focused on architectural concepts." : ""}
+パターンを明確に示すのに十分なコンテキストを各例に含めてくださいが、例は簡潔にし、アーキテクチャ概念に焦点を当ててください。" : ""}
 
 ${INCLUDES_DECISION_RECORDS ? 
-"### 15. Architectural Decision Records
-Document key architectural decisions evident in the codebase:
+"### 15. アーキテクチャ決定記録
+コードベースに明らかな主要アーキテクチャ決定を文書化してください：
 
-- **Architectural Style Decisions**:
-  - Why the current architectural pattern was chosen
-  - Alternatives considered (based on code evolution)
-  - Constraints that influenced the decision
+- **アーキテクチャスタイル決定**：
+  - 現在のアーキテクチャパターンが選ばれた理由
+  - 検討された代替案（コード進化に基づいて）
+  - 決定に影響した制約
 
-- **Technology Selection Decisions**:
-  - Key technology choices and their architectural impact
-  - Framework selection rationales
-  - Custom vs. off-the-shelf component decisions
+- **技術選択決定**：
+  - 主要技術選択とそのアーキテクチャへの影響
+  - フレームワーク選択の理由
+  - カスタム vs. 既製品コンポーネント決定
 
-- **Implementation Approach Decisions**:
-  - Specific implementation patterns chosen
-  - Standard pattern adaptations
-  - Performance vs. maintainability tradeoffs
+- **実装アプローチ決定**：
+  - 選択された特定実装パターン
+  - 標準パターンの適応
+  - パフォーマンス vs. 保守性トレードオフ
 
-For each decision, note:
-- Context that made the decision necessary
-- Factors considered in making the decision
-- Resulting consequences (positive and negative)
-- Future flexibility or limitations introduced" : ""}
+各決定について、以下を注意してください：
+- 決定を必要としたコンテキスト
+- 決定を下す際に考慮した要因
+- 結果として生じた帰結（ポジティブとネガティブ）
+- 導入された将来の柔軟性や制限" : ""}
 
-### ${INCLUDES_DECISION_RECORDS ? "16" : INCLUDES_CODE_EXAMPLES ? "15" : "14"}. Architecture Governance
-- Document how architectural consistency is maintained
-- Identify automated checks for architectural compliance
-- Note architectural review processes evident in the codebase
-- Document architectural documentation practices
+### ${INCLUDES_DECISION_RECORDS ? "16" : INCLUDES_CODE_EXAMPLES ? "15" : "14"}. アーキテクチャガバナンス
+- アーキテクチャの一貫性がどのように維持されているかを文書化する
+- アーキテクチャ遵守の自動チェックを特定する
+- コードベースに明らかなアーキテクチャレビュープロセスを注意する
+- アーキテクチャ文書化実践を文書化する
 
-### ${INCLUDES_DECISION_RECORDS ? "17" : INCLUDES_CODE_EXAMPLES ? "16" : "15"}. Blueprint for New Development
-Create a clear architectural guide for implementing new features:
+### ${INCLUDES_DECISION_RECORDS ? "17" : INCLUDES_CODE_EXAMPLES ? "16" : "15"}. 新規開発のためのブループリント
+新機能を実装するための明確なアーキテクチャガイドを作成してください：
 
-- **Development Workflow**:
-  - Starting points for different feature types
-  - Component creation sequence
-  - Integration steps with existing architecture
-  - Testing approach by architectural layer
+- **開発ワークフロー**：
+  - 各機能タイプの開始点
+  - コンポーネント作成シーケンス
+  - 既存アーキテクチャとの統合ステップ
+  - アーキテクチャレイヤー別テストアプローチ
 
-- **Implementation Templates**:
-  - Base class/interface templates for key architectural components
-  - Standard file organization for new components
-  - Dependency declaration patterns
-  - Documentation requirements
+- **実装テンプレート**：
+  - 主要アーキテクチャコンポーネントの基底クラス/インターフェーステンプレート
+  - 新コンポーネントの標準ファイル構成
+  - 依存関係宣言パターン
+  - 文書化要件
 
-- **Common Pitfalls**:
-  - Architecture violations to avoid
-  - Common architectural mistakes
-  - Performance considerations
-  - Testing blind spots
+- **よくある落とし穴**：
+  - 避けるべきアーキテクチャ違反
+  - よくあるアーキテクチャ間違い
+  - パフォーマンスの考慮事項
+  - テストの盲点
 
-Include information about when this blueprint was generated and recommendations for keeping it updated as the architecture evolves."
+このブループリントがいつ生成されたかの情報と、アーキテクチャが進化するにつれて更新を維持するための推奨事項を含めてください。"

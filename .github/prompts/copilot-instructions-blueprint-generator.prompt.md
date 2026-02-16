@@ -1,293 +1,294 @@
 ---
-description: 'Technology-agnostic blueprint generator for creating comprehensive copilot-instructions.md files that guide GitHub Copilot to produce code consistent with project standards, architecture patterns, and exact technology versions by analyzing existing codebase patterns and avoiding assumptions.'
+description: '既存のコードベースパターンを分析し、推測を避けることで、プロジェクト標準、アーキテクチャパターン、正確な技術バージョンと一致するコードを生成するためのGitHub Copilotをガイドする包括的なcopilot-instructions.mdファイルを作成する技術非依存ブループリント生成器。'
+agent: 'agent'
 ---
 
-# Copilot Instructions Blueprint Generator
+# Copilot指示ブループリント生成器
 
-## Configuration Variables
-${PROJECT_TYPE="Auto-detect|.NET|Java|JavaScript|TypeScript|React|Angular|Python|Multiple|Other"} <!-- Primary technology -->
-${ARCHITECTURE_STYLE="Layered|Microservices|Monolithic|Domain-Driven|Event-Driven|Serverless|Mixed"} <!-- Architectural approach -->
-${CODE_QUALITY_FOCUS="Maintainability|Performance|Security|Accessibility|Testability|All"} <!-- Quality priorities -->
-${DOCUMENTATION_LEVEL="Minimal|Standard|Comprehensive"} <!-- Documentation requirements -->
-${TESTING_REQUIREMENTS="Unit|Integration|E2E|TDD|BDD|All"} <!-- Testing approach -->
-${VERSIONING="Semantic|CalVer|Custom"} <!-- Versioning approach -->
+## 設定変数
+${PROJECT_TYPE="自動検出|.NET|Java|JavaScript|TypeScript|React|Angular|Python|複数|その他"} <!-- 主要技術 -->
+${ARCHITECTURE_STYLE="レイヤード|マイクロサービス|モノリシック|ドメイン駆動|イベント駆動|サーバーレス|混在"} <!-- アーキテクチャアプローチ -->
+${CODE_QUALITY_FOCUS="保守性|パフォーマンス|セキュリティ|アクセシビリティ|テスト可能性|すべて"} <!-- 品質優先度 -->
+${DOCUMENTATION_LEVEL="最小限|標準|包括的"} <!-- 文書化要件 -->
+${TESTING_REQUIREMENTS="ユニット|統合|E2E|TDD|BDD|すべて"} <!-- テストアプローチ -->
+${VERSIONING="セマンティック|CalVer|カスタム"} <!-- バージョニングアプローチ -->
 
-## Generated Prompt
+## 生成されたプロンプト
 
-"Generate a comprehensive copilot-instructions.md file that will guide GitHub Copilot to produce code consistent with our project's standards, architecture, and technology versions. The instructions must be strictly based on actual code patterns in our codebase and avoid making any assumptions. Follow this approach:
+"プロジェクトの標準、アーキテクチャ、技術バージョンと一致するコードを生成するようにGitHub Copilotを導く包括的なcopilot-instructions.mdファイルを生成してください。指示はコードベースの実際のコードパターンに厳密に基づいている必要があり、推測を避ける必要があります。以下のアプローチに従ってください：
 
-### 1. Core Instruction Structure
+### 1. コア指示構造
 
 ```markdown
-# GitHub Copilot Instructions
+# GitHub Copilot指示
 
-## Priority Guidelines
+## 優先ガイドライン
 
-When generating code for this repository:
+このリポジトリのコードを生成する際：
 
-1. **Version Compatibility**: Always detect and respect the exact versions of languages, frameworks, and libraries used in this project
-2. **Context Files**: Prioritize patterns and standards defined in the .github/copilot directory
-3. **Codebase Patterns**: When context files don't provide specific guidance, scan the codebase for established patterns
-4. **Architectural Consistency**: Maintain our ${ARCHITECTURE_STYLE} architectural style and established boundaries
-5. **Code Quality**: Prioritize ${CODE_QUALITY_FOCUS == "All" ? "maintainability, performance, security, accessibility, and testability" : CODE_QUALITY_FOCUS} in all generated code
+1. **バージョン互換性**: このプロジェクトで使用されている言語、フレームワーク、ライブラリの正確なバージョンを常に検出し、尊重する
+2. **コンテキストファイル**: .github/copilotディレクトリで定義されたパターンと標準を優先する
+3. **コードベースパターン**: コンテキストファイルが特定のガイダンスを提供しない場合、コードベースをスキャンして確立されたパターンを探す
+4. **アーキテクチャの一貫性**: 私たちの${ARCHITECTURE_STYLE}アーキテクチャスタイルと確立された境界を維持する
+5. **コード品質**: 生成されるすべてのコードで${CODE_QUALITY_FOCUS == "すべて" ? "保守性、パフォーマンス、セキュリティ、アクセシビリティ、テスト可能性" : CODE_QUALITY_FOCUS}を優先する
 
-## Technology Version Detection
+## 技術バージョン検出
 
-Before generating code, scan the codebase to identify:
+コードを生成する前に、コードベースをスキャンして特定してください：
 
-1. **Language Versions**: Detect the exact versions of programming languages in use
-   - Examine project files, configuration files, and package managers
-   - Look for language-specific version indicators (e.g., <LangVersion> in .NET projects)
-   - Never use language features beyond the detected version
+1. **言語バージョン**: 使用中のプログラミング言語の正確なバージョンを検出する
+   - プロジェクトファイル、設定ファイル、パッケージマネージャーを調査する
+   - 言語固有のバージョンインジケーター（例：.NETプロジェクトの<LangVersion>）を探す
+   - 検出されたバージョンを超える言語機能は使用しない
 
-2. **Framework Versions**: Identify the exact versions of all frameworks
-   - Check package.json, .csproj, pom.xml, requirements.txt, etc.
-   - Respect version constraints when generating code
-   - Never suggest features not available in the detected framework versions
+2. **フレームワークバージョン**: すべてのフレームワークの正確なバージョンを特定する
+   - package.json、.csproj、pom.xml、requirements.txtなどをチェックする
+   - コード生成時にバージョン制約を尊重する
+   - 検出されたフレームワークバージョンで利用可能でない機能は提案しない
 
-3. **Library Versions**: Note the exact versions of key libraries and dependencies
-   - Generate code compatible with these specific versions
-   - Never use APIs or features not available in the detected versions
+3. **ライブラリバージョン**: 主要ライブラリと依存関係の正確なバージョンを注意する
+   - これらの特定バージョンと互換性のあるコードを生成する
+   - 検出されたバージョンで利用可能でないAPIや機能は使用しない
 
-## Context Files
+## コンテキストファイル
 
-Prioritize the following files in .github/copilot directory (if they exist):
+.github/copilotディレクトリ内の以下のファイルを優先してください（存在する場合）：
 
-- **architecture.md**: System architecture guidelines
-- **tech-stack.md**: Technology versions and framework details
-- **coding-standards.md**: Code style and formatting standards
-- **folder-structure.md**: Project organization guidelines
-- **exemplars.md**: Exemplary code patterns to follow
+- **architecture.md**: システムアーキテクチャガイドライン
+- **tech-stack.md**: 技術バージョンとフレームワーク詳細
+- **coding-standards.md**: コードスタイルとフォーマット標準
+- **folder-structure.md**: プロジェクト構成ガイドライン
+- **exemplars.md**: 従うべき模範的コードパターン
 
-## Codebase Scanning Instructions
+## コードベーススキャン指示
 
-When context files don't provide specific guidance:
+コンテキストファイルが特定のガイダンスを提供しない場合：
 
-1. Identify similar files to the one being modified or created
-2. Analyze patterns for:
-   - Naming conventions
-   - Code organization
-   - Error handling
-   - Logging approaches
-   - Documentation style
-   - Testing patterns
+1. 変更または作成されるファイルに似たファイルを特定する
+2. 以下のパターンを分析する：
+   - 命名規約
+   - コード構成
+   - エラー処理
+   - ログアプローチ
+   - 文書化スタイル
+   - テストパターン
    
-3. Follow the most consistent patterns found in the codebase
-4. When conflicting patterns exist, prioritize patterns in newer files or files with higher test coverage
-5. Never introduce patterns not found in the existing codebase
+3. コードベースで見つかった最も一貫したパターンに従う
+4. 競合するパターンが存在する場合、新しいファイルまたは高いテストカバレッジを持つファイルのパターンを優先する
+5. 既存のコードベースで見つからないパターンは導入しない
 
-## Code Quality Standards
+## コード品質標準
 
-${CODE_QUALITY_FOCUS.includes("Maintainability") || CODE_QUALITY_FOCUS == "All" ? `### Maintainability
-- Write self-documenting code with clear naming
-- Follow the naming and organization conventions evident in the codebase
-- Follow established patterns for consistency
-- Keep functions focused on single responsibilities
-- Limit function complexity and length to match existing patterns` : ""}
+${CODE_QUALITY_FOCUS.includes("保守性") || CODE_QUALITY_FOCUS == "すべて" ? `### 保守性
+- 明確な命名で自己文書化コードを書く
+- コードベースに明らかな命名と構成規約に従う
+- 一貫性のために確立されたパターンに従う
+- 関数を単一責任に焦点を合わせる
+- 関数の複雑さと長さを既存パターンに合わせる` : ""}
 
-${CODE_QUALITY_FOCUS.includes("Performance") || CODE_QUALITY_FOCUS == "All" ? `### Performance
-- Follow existing patterns for memory and resource management
-- Match existing patterns for handling computationally expensive operations
-- Follow established patterns for asynchronous operations
-- Apply caching consistently with existing patterns
-- Optimize according to patterns evident in the codebase` : ""}
+${CODE_QUALITY_FOCUS.includes("パフォーマンス") || CODE_QUALITY_FOCUS == "すべて" ? `### パフォーマンス
+- メモリとリソース管理の既存パターンに従う
+- 計算量の多い操作を処理する既存パターンに合わせる
+- 非同期操作の確立されたパターンに従う
+- 既存パターンと一貫してキャッシュを適用する
+- コードベースに明らかなパターンに従って最適化する` : ""}
 
-${CODE_QUALITY_FOCUS.includes("Security") || CODE_QUALITY_FOCUS == "All" ? `### Security
-- Follow existing patterns for input validation
-- Apply the same sanitization techniques used in the codebase
-- Use parameterized queries matching existing patterns
-- Follow established authentication and authorization patterns
-- Handle sensitive data according to existing patterns` : ""}
+${CODE_QUALITY_FOCUS.includes("セキュリティ") || CODE_QUALITY_FOCUS == "すべて" ? `### セキュリティ
+- 入力検証の既存パターンに従う
+- コードベースで使用されている同じサニタイゼーション手法を適用する
+- 既存パターンに合わせたパラメータ化クエリを使用する
+- 確立された認証と許可パターンに従う
+- 既存パターンに従って機密データを処理する` : ""}
 
-${CODE_QUALITY_FOCUS.includes("Accessibility") || CODE_QUALITY_FOCUS == "All" ? `### Accessibility
-- Follow existing accessibility patterns in the codebase
-- Match ARIA attribute usage with existing components
-- Maintain keyboard navigation support consistent with existing code
-- Follow established patterns for color and contrast
-- Apply text alternative patterns consistent with the codebase` : ""}
+${CODE_QUALITY_FOCUS.includes("アクセシビリティ") || CODE_QUALITY_FOCUS == "すべて" ? `### アクセシビリティ
+- コードベースの既存アクセシビリティパターンに従う
+- 既存コンポーネントとARIA属性の使用を合わせる
+- 既存コードと一貫したキーボードナビゲーションサポートを維持する
+- 色とコントラストの確立されたパターンに従う
+- コードベースと一貫したテキスト代替パターンを適用する` : ""}
 
-${CODE_QUALITY_FOCUS.includes("Testability") || CODE_QUALITY_FOCUS == "All" ? `### Testability
-- Follow established patterns for testable code
-- Match dependency injection approaches used in the codebase
-- Apply the same patterns for managing dependencies
-- Follow established mocking and test double patterns
-- Match the testing style used in existing tests` : ""}
+${CODE_QUALITY_FOCUS.includes("テスト可能性") || CODE_QUALITY_FOCUS == "すべて" ? `### テスト可能性
+- テスト可能コードの確立されたパターンに従う
+- コードベースで使用されている依存関係注入アプローチに合わせる
+- 依存関係を管理する同じパターンを適用する
+- 確立されたモッキングとテストダブルパターンに従う
+- 既存テストで使用されているテストスタイルに合わせる` : ""}
 
-## Documentation Requirements
+## 文書化要件
 
-${DOCUMENTATION_LEVEL == "Minimal" ? 
-`- Match the level and style of comments found in existing code
-- Document according to patterns observed in the codebase
-- Follow existing patterns for documenting non-obvious behavior
-- Use the same format for parameter descriptions as existing code` : ""}
+${DOCUMENTATION_LEVEL == "最小限" ? 
+`- 既存コードで見つかったコメントのレベルとスタイルに合わせる
+- コードベースで観察されたパターンに従って文書化する
+- 自明でない動作を文書化する既存パターンに従う
+- 既存コードと同じパラメータ説明フォーマットを使用する` : ""}
 
-${DOCUMENTATION_LEVEL == "Standard" ? 
-`- Follow the exact documentation format found in the codebase
-- Match the XML/JSDoc style and completeness of existing comments
-- Document parameters, returns, and exceptions in the same style
-- Follow existing patterns for usage examples
-- Match class-level documentation style and content` : ""}
+${DOCUMENTATION_LEVEL == "標準" ? 
+`- コードベースで見つかった正確な文書化フォーマットに従う
+- 既存コメントのXML/JSDocスタイルと完全性に合わせる
+- パラメータ、戻り値、例外を同じスタイルで文書化する
+- 使用例の既存パターンに従う
+- クラスレベル文書化スタイルと内容に合わせる` : ""}
 
-${DOCUMENTATION_LEVEL == "Comprehensive" ? 
-`- Follow the most detailed documentation patterns found in the codebase
-- Match the style and completeness of the best-documented code
-- Document exactly as the most thoroughly documented files do
-- Follow existing patterns for linking documentation
-- Match the level of detail in explanations of design decisions` : ""}
+${DOCUMENTATION_LEVEL == "包括的" ? 
+`- コードベースで見つかった最も詳細な文書化パターンに従う
+- 最も詳しく文書化されたコードのスタイルと完全性に合わせる
+- 最も徹底的に文書化されたファイルと同じように文書化する
+- 文書をリンクする既存パターンに従う
+- 設計決定の説明で同じレベルの詳細を合わせる` : ""}
 
-## Testing Approach
+## テストアプローチ
 
-${TESTING_REQUIREMENTS.includes("Unit") || TESTING_REQUIREMENTS == "All" ? 
-`### Unit Testing
-- Match the exact structure and style of existing unit tests
-- Follow the same naming conventions for test classes and methods
-- Use the same assertion patterns found in existing tests
-- Apply the same mocking approach used in the codebase
-- Follow existing patterns for test isolation` : ""}
+${TESTING_REQUIREMENTS.includes("ユニット") || TESTING_REQUIREMENTS == "すべて" ? 
+`### ユニットテスト
+- 既存ユニットテストの正確な構造とスタイルに合わせる
+- テストクラスとメソッドの同じ命名規約に従う
+- 既存テストで見つかった同じアサーションパターンを使用する
+- コードベースで使用されている同じモッキングアプローチを適用する
+- テスト分離の既存パターンに従う` : ""}
 
-${TESTING_REQUIREMENTS.includes("Integration") || TESTING_REQUIREMENTS == "All" ? 
-`### Integration Testing
-- Follow the same integration test patterns found in the codebase
-- Match existing patterns for test data setup and teardown
-- Use the same approach for testing component interactions
-- Follow existing patterns for verifying system behavior` : ""}
+${TESTING_REQUIREMENTS.includes("統合") || TESTING_REQUIREMENTS == "すべて" ? 
+`### 統合テスト
+- コードベースで見つかった同じ統合テストパターンに従う
+- テストデータセットアップとティアダウンの既存パターンに合わせる
+- コンポーネント間相互作用をテストする同じアプローチを使用する
+- システム動作を検証する既存パターンに従う` : ""}
 
-${TESTING_REQUIREMENTS.includes("E2E") || TESTING_REQUIREMENTS == "All" ? 
-`### End-to-End Testing
-- Match the existing E2E test structure and patterns
-- Follow established patterns for UI testing
-- Apply the same approach for verifying user journeys` : ""}
+${TESTING_REQUIREMENTS.includes("E2E") || TESTING_REQUIREMENTS == "すべて" ? 
+`### エンドツーエンドテスト
+- 既存のE2Eテスト構造とパターンに合わせる
+- UIテストの確立されたパターンに従う
+- ユーザージャーニーを検証する同じアプローチを適用する` : ""}
 
-${TESTING_REQUIREMENTS.includes("TDD") || TESTING_REQUIREMENTS == "All" ? 
-`### Test-Driven Development
-- Follow TDD patterns evident in the codebase
-- Match the progression of test cases seen in existing code
-- Apply the same refactoring patterns after tests pass` : ""}
+${TESTING_REQUIREMENTS.includes("TDD") || TESTING_REQUIREMENTS == "すべて" ? 
+`### テスト駆動開発
+- コードベースに明らかなTDDパターンに従う
+- 既存コードで見られるテストケースの進行に合わせる
+- テストが成功した後の同じリファクタリングパターンを適用する` : ""}
 
-${TESTING_REQUIREMENTS.includes("BDD") || TESTING_REQUIREMENTS == "All" ? 
-`### Behavior-Driven Development
-- Match the existing Given-When-Then structure in tests
-- Follow the same patterns for behavior descriptions
-- Apply the same level of business focus in test cases` : ""}
+${TESTING_REQUIREMENTS.includes("BDD") || TESTING_REQUIREMENTS == "すべて" ? 
+`### 振る舞い駆動開発
+- テストの既存Given-When-Then構造に合わせる
+- 振る舞い説明の同じパターンに従う
+- テストケースで同じレベルのビジネス焦点を適用する` : ""}
 
-## Technology-Specific Guidelines
+## 技術固有ガイドライン
 
-${PROJECT_TYPE == ".NET" || PROJECT_TYPE == "Auto-detect" || PROJECT_TYPE == "Multiple" ? `### .NET Guidelines
-- Detect and strictly adhere to the specific .NET version in use
-- Use only C# language features compatible with the detected version
-- Follow LINQ usage patterns exactly as they appear in the codebase
-- Match async/await usage patterns from existing code
-- Apply the same dependency injection approach used in the codebase
-- Use the same collection types and patterns found in existing code` : ""}
+${PROJECT_TYPE == ".NET" || PROJECT_TYPE == "自動検出" || PROJECT_TYPE == "複数" ? `### .NETガイドライン
+- 使用中の特定の.NETバージョンを検出し、厳格に従う
+- 検出されたバージョンと互換性のあるC#言語機能のみを使用する
+- コードベースに現れるLINQ使用パターンに全く従う
+- 既存コードからのasync/await使用パターンに合わせる
+- コードベースで使用されている同じ依存関係注入アプローチを適用する
+- 既存コードで見つかった同じコレクションタイプとパターンを使用する` : ""}
 
-${PROJECT_TYPE == "Java" || PROJECT_TYPE == "Auto-detect" || PROJECT_TYPE == "Multiple" ? `### Java Guidelines
-- Detect and adhere to the specific Java version in use
-- Follow the exact same design patterns found in the codebase
-- Match exception handling patterns from existing code
-- Use the same collection types and approaches found in the codebase
-- Apply the dependency injection patterns evident in existing code` : ""}
+${PROJECT_TYPE == "Java" || PROJECT_TYPE == "自動検出" || PROJECT_TYPE == "複数" ? `### Javaガイドライン
+- 使用中の特定のJavaバージョンを検出し、従う
+- コードベースで見つかった全く同じデザインパターンに従う
+- 既存コードからの例外処理パターンに合わせる
+- コードベースで見つかった同じコレクションタイプとアプローチを使用する
+- 既存コードに明らかな依存関係注入パターンを適用する` : ""}
 
-${PROJECT_TYPE == "JavaScript" || PROJECT_TYPE == "TypeScript" || PROJECT_TYPE == "Auto-detect" || PROJECT_TYPE == "Multiple" ? `### JavaScript/TypeScript Guidelines
-- Detect and adhere to the specific ECMAScript/TypeScript version in use
-- Follow the same module import/export patterns found in the codebase
-- Match TypeScript type definitions with existing patterns
-- Use the same async patterns (promises, async/await) as existing code
-- Follow error handling patterns from similar files` : ""}
+${PROJECT_TYPE == "JavaScript" || PROJECT_TYPE == "TypeScript" || PROJECT_TYPE == "自動検出" || PROJECT_TYPE == "複数" ? `### JavaScript/TypeScriptガイドライン
+- 使用中の特定のECMAScript/TypeScriptバージョンを検出し、従う
+- コードベースで見つかった同じモジュールインポート/エクスポートパターンに従う
+- 既存パターンとTypeScript型定義を合わせる
+- 既存コードと同じ非同期パターン（promises、async/await）を使用する
+- 似たファイルからのエラー処理パターンに従う` : ""}
 
-${PROJECT_TYPE == "React" || PROJECT_TYPE == "Auto-detect" || PROJECT_TYPE == "Multiple" ? `### React Guidelines
-- Detect and adhere to the specific React version in use
-- Match component structure patterns from existing components
-- Follow the same hooks and lifecycle patterns found in the codebase
-- Apply the same state management approach used in existing components
-- Match prop typing and validation patterns from existing code` : ""}
+${PROJECT_TYPE == "React" || PROJECT_TYPE == "自動検出" || PROJECT_TYPE == "複数" ? `### Reactガイドライン
+- 使用中の特定のReactバージョンを検出し、従う
+- 既存コンポーネントからのコンポーネント構造パターンに合わせる
+- コードベースで見つかった同じフックとライフサイクルパターンに従う
+- 既存コンポーネントで使用されている同じ状態管理アプローチを適用する
+- 既存コードからのprop型付けと検証パターンに合わせる` : ""}
 
-${PROJECT_TYPE == "Angular" || PROJECT_TYPE == "Auto-detect" || PROJECT_TYPE == "Multiple" ? `### Angular Guidelines
-- Detect and adhere to the specific Angular version in use
-- Follow the same component and module patterns found in the codebase
-- Match decorator usage exactly as seen in existing code
-- Apply the same RxJS patterns found in the codebase
-- Follow existing patterns for component communication` : ""}
+${PROJECT_TYPE == "Angular" || PROJECT_TYPE == "自動検出" || PROJECT_TYPE == "複数" ? `### Angularガイドライン
+- 使用中の特定のAngularバージョンを検出し、従う
+- コードベースで見つかった同じコンポーネントとモジュールパターンに従う
+- 既存コードで見られる通りのデコレーター使用に合わせる
+- コードベースで見つかった同じRxJSパターンを適用する
+- コンポーネント間通信の既存パターンに従う` : ""}
 
-${PROJECT_TYPE == "Python" || PROJECT_TYPE == "Auto-detect" || PROJECT_TYPE == "Multiple" ? `### Python Guidelines
-- Detect and adhere to the specific Python version in use
-- Follow the same import organization found in existing modules
-- Match type hinting approaches if used in the codebase
-- Apply the same error handling patterns found in existing code
-- Follow the same module organization patterns` : ""}
+${PROJECT_TYPE == "Python" || PROJECT_TYPE == "自動検出" || PROJECT_TYPE == "複数" ? `### Pythonガイドライン
+- 使用中の特定のPythonバージョンを検出し、従う
+- 既存モジュールで見つかった同じインポート構成に従う
+- コードベースで使用されている場合は型ヒントアプローチに合わせる
+- 既存コードで見つかった同じエラー処理パターンを適用する
+- 同じモジュール構成パターンに従う` : ""}
 
-## Version Control Guidelines
+## バージョン管理ガイドライン
 
-${VERSIONING == "Semantic" ? 
-`- Follow Semantic Versioning patterns as applied in the codebase
-- Match existing patterns for documenting breaking changes
-- Follow the same approach for deprecation notices` : ""}
+${VERSIONING == "セマンティック" ? 
+`- コードベースで適用されたセマンティックバージョニングパターンに従う
+- 破壊的変更を文書化する既存パターンに合わせる
+- 非推奨通知の同じアプローチに従う` : ""}
 
 ${VERSIONING == "CalVer" ? 
-`- Follow Calendar Versioning patterns as applied in the codebase
-- Match existing patterns for documenting changes
-- Follow the same approach for highlighting significant changes` : ""}
+`- コードベースで適用されたカレンダーバージョニングパターンに従う
+- 変更を文書化する既存パターンに合わせる
+- 重要な変更を強調する同じアプローチに従う` : ""}
 
-${VERSIONING == "Custom" ? 
-`- Match the exact versioning pattern observed in the codebase
-- Follow the same changelog format used in existing documentation
-- Apply the same tagging conventions used in the project` : ""}
+${VERSIONING == "カスタム" ? 
+`- コードベースで観察された正確なバージョニングパターンに合わせる
+- 既存文書で使用されている同じ変更ログフォーマットに従う
+- プロジェクトで使用されている同じタグ付け規約を適用する` : ""}
 
-## General Best Practices
+## 一般的ベストプラクティス
 
-- Follow naming conventions exactly as they appear in existing code
-- Match code organization patterns from similar files
-- Apply error handling consistent with existing patterns
-- Follow the same approach to testing as seen in the codebase
-- Match logging patterns from existing code
-- Use the same approach to configuration as seen in the codebase
+- 既存コードに現れる通りの命名規約に従う
+- 似たファイルからのコード構成パターンに合わせる
+- 既存パターンと一貫したエラー処理を適用する
+- コードベースで見られる同じテストアプローチに従う
+- 既存コードからのログパターンに合わせる
+- コードベースで見られる同じ設定アプローチを使用する
 
-## Project-Specific Guidance
+## プロジェクト固有ガイダンス
 
-- Scan the codebase thoroughly before generating any code
-- Respect existing architectural boundaries without exception
-- Match the style and patterns of surrounding code
-- When in doubt, prioritize consistency with existing code over external best practices
+- コードを生成する前にコードベースを徹底的にスキャンする
+- 例外なく既存アーキテクチャ境界を尊重する
+- 周囲のコードのスタイルとパターンに合わせる
+- 疑わしい場合、外部ベストプラクティスより既存コードとの一貫性を優先する
 ```
 
-### 2. Codebase Analysis Instructions
+### 2. コードベース分析指示
 
-To create the copilot-instructions.md file, first analyze the codebase to:
+copilot-instructions.mdファイルを作成するために、まずコードベースを分析して：
 
-1. **Identify Exact Technology Versions**:
-   - ${PROJECT_TYPE == "Auto-detect" ? "Detect all programming languages, frameworks, and libraries by scanning file extensions and configuration files" : `Focus on ${PROJECT_TYPE} technologies`}
-   - Extract precise version information from project files, package.json, .csproj, etc.
-   - Document version constraints and compatibility requirements
+1. **正確な技術バージョンの特定**：
+   - ${PROJECT_TYPE == "自動検出" ? "ファイル拡張子と設定ファイルをスキャンして、すべてのプログラミング言語、フレームワーク、ライブラリを検出する" : `${PROJECT_TYPE}技術に焦点を当てる`}
+   - プロジェクトファイル、package.json、.csprojなどから正確なバージョン情報を抽出する
+   - バージョン制約と互換性要件を文書化する
 
-2. **Understand Architecture**:
-   - Analyze folder structure and module organization
-   - Identify clear layer boundaries and component relationships
-   - Document communication patterns between components
+2. **アーキテクチャの理解**：
+   - フォルダ構造とモジュール構成を分析する
+   - 明確なレイヤー境界とコンポーネント関係を特定する
+   - コンポーネント間通信パターンを文書化する
 
-3. **Document Code Patterns**:
-   - Catalog naming conventions for different code elements
-   - Note documentation styles and completeness
-   - Document error handling patterns
-   - Map testing approaches and coverage
+3. **コードパターンの文書化**：
+   - 各コード要素の命名規約をカタログ化する
+   - 文書化スタイルと完全性を注意する
+   - エラー処理パターンを文書化する
+   - テストアプローチとカバレッジをマッピングする
 
-4. **Note Quality Standards**:
-   - Identify performance optimization techniques actually used
-   - Document security practices implemented in the code
-   - Note accessibility features present (if applicable)
-   - Document code quality patterns evident in the codebase
+4. **品質標準を注意**：
+   - 実際に使用されているパフォーマンス最適化技術を特定する
+   - コードで実装されているセキュリティ実践を文書化する
+   - 存在するアクセシビリティ機能を注意する（該当する場合）
+   - コードベースに明らかなコード品質パターンを文書化する
 
-### 3. Implementation Notes
+### 3. 実装ノート
 
-The final copilot-instructions.md should:
-- Be placed in the .github/copilot directory
-- Reference only patterns and standards that exist in the codebase
-- Include explicit version compatibility requirements
-- Avoid prescribing any practices not evident in the code
-- Provide concrete examples from the codebase
-- Be comprehensive yet concise enough for Copilot to effectively use
+最終的なcopilot-instructions.mdは：
+- .github/copilotディレクトリに配置する
+- コードベースに存在するパターンと標準のみを参照する
+- 明示的なバージョン互換性要件を含める
+- コードに明らかでない実践の規定を避ける
+- コードベースからの具体例を提供する
+- Copilotが効果的に使用できるために包括的でありながら簡潔である
 
-Important: Only include guidance based on patterns actually observed in the codebase. Explicitly instruct Copilot to prioritize consistency with existing code over external best practices or newer language features.
+重要：コードベースで実際に観察されたパターンに基づいたガイダンスのみを含める。Copilotに对して、外部ベストプラクティスや新しい言語機能よりも既存コードとの一貫性を優先するよう明示的に指示する。
 "
 
-## Expected Output
+## 期待されるアウトプット
 
-A comprehensive copilot-instructions.md file that will guide GitHub Copilot to produce code that is perfectly compatible with your existing technology versions and follows your established patterns and architecture.
+既存の技術バージョンと完全に互換性があり、確立されたパターンとアーキテクチャに従ったコードを生成するようにGitHub Copilotを導く包括的なcopilot-instructions.mdファイル。

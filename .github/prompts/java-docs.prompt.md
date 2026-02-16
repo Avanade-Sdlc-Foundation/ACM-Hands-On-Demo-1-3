@@ -1,23 +1,24 @@
 ---
-tools: ['changes', 'codebase', 'editFiles', 'problems']
-description: 'Ensure that Java types are documented with Javadoc comments and follow best practices for documentation.'
+agent: 'agent'
+tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
+description: 'Java型がJavadocコメントで文書化され、文書化のベストプラクティスに従っていることを保証する。'
 ---
 
-# Java Documentation (Javadoc) Best Practices
+# Java文書化（Javadoc）ベストプラクティス
 
-- Public and protected members should be documented with Javadoc comments.
-- It is encouraged to document package-private and private members as well, especially if they are complex or not self-explanatory.
-- The first sentence of the Javadoc comment is the summary description. It should be a concise overview of what the method does and end with a period.
-- Use `@param` for method parameters. The description starts with a lowercase letter and does not end with a period.
-- Use `@return` for method return values.
-- Use `@throws` or `@exception` to document exceptions thrown by methods.
-- Use `@see` for references to other types or members.
-- Use `{@inheritDoc}` to inherit documentation from base classes or interfaces.
-  - Unless there is major behavior change, in which case you should document the differences.
-- Use `@param <T>` for type parameters in generic types or methods.
-- Use `{@code}` for inline code snippets.
-- Use `<pre>{@code ... }</pre>` for code blocks.
-- Use `@since` to indicate when the feature was introduced (e.g., version number).
-- Use `@version` to specify the version of the member.
-- Use `@author` to specify the author of the code.
-- Use `@deprecated` to mark a member as deprecated and provide an alternative.
+- PublicとProtectedメンバーはJavadocコメントで文書化すべきです。
+- Package-privateとPrivateメンバーも、特に複雑であったり自明でない場合は、文書化することが推奨されます。
+- Javadocコメントの最初の文は要約説明です。メソッドが何をするかの簡潔な概要であり、ピリオドで終わるべきです。
+- メソッドパラメータには`@param`を使用します。説明は小文字で始まり、ピリオドで終わりません。
+- メソッドの戻り値には`@return`を使用します。
+- メソッドによってスローされる例外を文書化するには`@throws`または`@exception`を使用します。
+- 他の型やメンバーへの参照には`@see`を使用します。
+- 基底クラスやインターフェースから文書を継承するには`{@inheritDoc}`を使用します。
+  - 主要な動作変更がある場合を除き、その場合は相違点を文書化すべきです。
+- ジェネリック型やメソッドの型パラメータには`@param <T>`を使用します。
+- インラインコードスニペットには`{@code}`を使用します。
+- コードブロックには`<pre>{@code ... }</pre>`を使用します。
+- 機能がいつ導入されたかを示すには`@since`を使用します（例：バージョン番号）。
+- メンバーのバージョンを指定するには`@version`を使用します。
+- コードの作成者を指定するには`@author`を使用します。
+- メンバーを非推奨としてマークし、代替案を提供するには`@deprecated`を使用します。
