@@ -6,6 +6,9 @@
 
 [プレゼンテーションはこちら](https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application)
 
+## Hands-On手順
+ - [こちらを参照してください。](/Hands-On/README.md)  
+
 ## Petclinicをローカルで実行
 
 Spring Petclinicは、[Maven](https://spring.io/guides/gs/maven/)または[Gradle](https://spring.io/guides/gs/gradle/)を使用してビルドされた[Spring Boot](https://spring.io/guides/gs/spring-boot)アプリケーションです。jarファイルをビルドし、コマンドラインから実行できます（Java 17以降で動作します）：
