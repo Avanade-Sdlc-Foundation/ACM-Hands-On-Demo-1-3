@@ -3,15 +3,24 @@
 | [© ‘O‚ÌŽè‡](./0-prereqs.md) | [ŽŸ‚ÌŽè‡: ƒuƒ‹[ƒvƒŠƒ“ƒgƒvƒƒ“ƒvƒg ¨](./2-blueprint-instructions.md) |
 |:--|--:|
 
-GitHub Copilot Agentƒ‚[ƒh‚ðŽg—p‚µ‚ÄASpring Boot PetClinicƒvƒƒWƒFƒNƒg—p‚ÌƒJƒXƒ^ƒ€ŽwŽ¦ƒtƒ@ƒCƒ‹‚ðì¬‚µ‚Ü‚·B‚±‚ÌŽwŽ¦ƒtƒ@ƒCƒ‹‚É‚æ‚èACopilot‚ªƒvƒƒWƒFƒNƒgŒÅ—L‚ÌƒxƒXƒgƒvƒ‰ƒNƒeƒBƒX‚É]‚Á‚½ƒR[ƒh‚ÆƒhƒLƒ…ƒƒ“ƒg‚ð¶¬‚Å‚«‚é‚æ‚¤‚É‚È‚è‚Ü‚·B
+
 
 ## ƒVƒiƒŠƒI
+GitHub Copilot Agentƒ‚[ƒh‚ðŽg—p‚µ‚ÄASpring Boot PetClinicƒvƒƒWƒFƒNƒg—p‚ÌƒJƒXƒ^ƒ€ŽwŽ¦ƒtƒ@ƒCƒ‹‚ðì¬‚µ‚Ü‚·B‚±‚ÌŽwŽ¦ƒtƒ@ƒCƒ‹‚É‚æ‚èACopilot‚ªƒvƒƒWƒFƒNƒgŒÅ—L‚ÌƒxƒXƒgƒvƒ‰ƒNƒeƒBƒX‚É]‚Á‚½ƒR[ƒh‚ÆƒhƒLƒ…ƒƒ“ƒg‚ð¶¬‚Å‚«‚é‚æ‚¤‚É‚È‚è‚Ü‚·B
 
-ŠJ”­ƒ`[ƒ€‚ÌV‚µ‚¢ƒƒ“ƒo[‚Æ‚µ‚ÄAŠù‘¶‚ÌSpring Boot PetClinicƒvƒƒWƒFƒNƒg‚ÌƒR[ƒfƒBƒ“ƒO•W€‚ÆƒA[ƒLƒeƒNƒ`ƒƒƒpƒ^[ƒ“‚ð—‰ð‚µA‚»‚ê‚ðCopilot‚É‹³ˆç‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B‚Ü‚¸‚Í•W€“I‚ÈAgent‹@”\‚ðŽg—p‚µ‚ÄŠî–{“I‚ÈƒJƒXƒ^ƒ€ŽwŽ¦ƒtƒ@ƒCƒ‹‚ðì¬‚µAƒvƒƒWƒFƒNƒg‚Ì‹ZpƒXƒ^ƒbƒN‚ÆƒR[ƒfƒBƒ“ƒO‹K–ñ‚ð”cˆ¬‚µ‚Ü‚·B
+## Agent‹@”\‚É‚Â‚¢‚Ä
 
-## ? •K{ 1. GitHub Copilot Chat‚Ì‹N“®
+GitHub Copilot Agentƒ‚[ƒh‚ÍAŠî–{“I‚ÈƒvƒƒWƒFƒNƒg•ªÍ‚ðs‚¢AŠT”O“I‚Èƒ‹[ƒ‹‚Æˆê”Ê“I‚ÈƒxƒXƒgƒvƒ‰ƒNƒeƒBƒX‚ÉŠî‚Ã‚¢‚½ƒJƒXƒ^ƒ€ŽwŽ¦ƒtƒ@ƒCƒ‹‚ð¶¬‚µ‚Ü‚·B‚±‚Ì‹@”\‚Ì“Á’¥F
 
-### 1.1 Copilot Chatƒrƒ…[‚ÌŠJŽn
+- **Šî–{“I‚È‹ZpƒXƒ^ƒbƒNŒŸo**: ƒtƒŒ[ƒ€ƒ[ƒN‚Æƒ‰ƒCƒuƒ‰ƒŠ‚ÌŽ¯•Ê
+- **ˆê”Ê“I‚Èƒ‹[ƒ‹’ñ‹Ÿ**: L‚­“K—p‰Â”\‚ÈƒR[ƒfƒBƒ“ƒO‹K–ñ
+- **ŠwK‚µ‚â‚·‚¢\¬**: ‰SŽÒ‚É‚à—‰ð‚µ‚â‚·‚¢à–¾
+
+ŽŸ‚Ì‰‰K‚ÅŽg—p‚·‚éƒuƒ‹[ƒvƒŠƒ“ƒgƒvƒƒ“ƒvƒg‚Æ‚Ìˆá‚¢‚à‘ÌŒ±‚Å‚«‚Ü‚·B
+
+## •K{ 1. GitHub Copilot Chat‚Ì‹N“®
+
+### 1.1 Copilot ChatƒZƒbƒVƒ‡ƒ“‚ÌŠm”F
 
 1. VS Code‚Ì‰EƒTƒCƒhƒo[‚É‚ ‚éƒ`ƒƒƒbƒgƒAƒCƒRƒ“‚ðƒNƒŠƒbƒN‚µ‚Ü‚·
    ![Copilot Chat Icon](images/chat-icon.png)
@@ -29,7 +38,7 @@ GitHub Copilot Agentƒ‚[ƒh‚ðŽg—p‚µ‚ÄASpring Boot PetClinicƒvƒƒWƒFƒNƒg—p‚ÌƒJƒXƒ
    ```
 2. Spring Boot PetClinicƒvƒƒWƒFƒNƒg‚ÌŽå—vƒRƒ“ƒ|[ƒlƒ“ƒg‚ª”FŽ¯‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ðŠm”F‚µ‚Ü‚·
 
-## ? •K{ 2. ƒJƒXƒ^ƒ€ŽwŽ¦ƒtƒ@ƒCƒ‹‚Ì¶¬
+## •K{ 2. ƒJƒXƒ^ƒ€ŽwŽ¦ƒtƒ@ƒCƒ‹‚Ì¶¬
 
 ### 2.1 Agent—pƒvƒƒ“ƒvƒg‚ÌŽÀs
 
@@ -46,18 +55,23 @@ GitHub Copilot Agentƒ‚[ƒh‚ðŽg—p‚µ‚ÄASpring Boot PetClinicƒvƒƒWƒFƒNƒg—p‚ÌƒJƒXƒ
 - ‹ÖŽ~Ž–€‚Æ„§Ž–€
 ```
 
-### 2.2 ¶¬Œ‹‰Ê‚ÌŠm”F
+### 2.2 ¶¬Œ‹‰Ê‚ÌŠm”F‚Æ•Û‘¶
 
-1. Copilot‚ª¶¬‚µ‚½ŽwŽ¦ƒtƒ@ƒCƒ‹‚Ì“à—e‚ðŠm”F‚µ‚Ü‚·
-2. ˆÈ‰º‚Ì—v‘f‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚±‚Æ‚ðŠm”F‚µ‚Ü‚·F
+1. Copilot‚ªƒtƒ@ƒCƒ‹‚ð¶¬‚µ‚½‚©‚ðŠm”F‚µ‚Ü‚·F
+   - Chat‚Åƒtƒ@ƒCƒ‹‚Ì“à—e‚ª•\Ž¦‚³‚ê‚Ä‚¢‚é‚±‚Æ
+   - ƒtƒ@ƒCƒ‹ì¬‚ÌƒƒbƒZ[ƒW‚ª•\Ž¦‚³‚ê‚Ä‚¢‚é‚±‚Æ
+
+2. ¶¬‚³‚ê‚½ŽwŽ¦ƒtƒ@ƒCƒ‹‚Ì“à—e‚ðŠm”F‚µ‚Ü‚·BˆÈ‰º‚Ì—v‘f‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚±‚Æ‚ðŠm”FF
    - ƒvƒƒWƒFƒNƒg‚Ì‹ZpƒXƒ^ƒbƒNî•ñ
    - ƒA[ƒLƒeƒNƒ`ƒƒ‚ÌƒŒƒCƒ„[•ª‚¯ƒ‹[ƒ‹
    - ƒR[ƒhƒtƒH[ƒ}ƒbƒg‹K‘¥
    - ƒGƒ“ƒeƒBƒeƒBÝŒvƒpƒ^[ƒ“
 
-3. ƒtƒ@ƒCƒ‹‚ð•Û‘¶‚µ‚Ü‚·
+3. ƒtƒ@ƒCƒ‹‚ð•Û‘¶‚µ‚Ü‚·F
+   - Copilot‚ªŽ©“®‚Åƒtƒ@ƒCƒ‹‚ðì¬‚µ‚½ê‡‚ÍA`.github/agent-copilot-instructions.md`‚É•Û‘¶‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ðŠm”F
+   - Žè“®‚Å•Û‘¶‚·‚é•K—v‚ª‚ ‚éê‡‚ÍAƒvƒƒWƒFƒNƒgƒ‹[ƒg‚É`.github`ƒtƒHƒ‹ƒ_‚ðì¬‚µA‚»‚Ì’†‚É`agent-copilot-instructions.md`‚Æ‚µ‚Ä•Û‘¶
 
-## ? ŽQl 3. ¶¬‚³‚ê‚½ŽwŽ¦ƒtƒ@ƒCƒ‹‚Ì“à—e•ªÍ
+## ŽQl 3. ¶¬‚³‚ê‚½ŽwŽ¦ƒtƒ@ƒCƒ‹‚Ì“à—e•ªÍ
 
 ### 3.1 ‹ZpƒXƒ^ƒbƒNŒŸo‚ÌŠm”F
 
@@ -75,7 +89,7 @@ GitHub Copilot Agentƒ‚[ƒh‚ðŽg—p‚µ‚ÄASpring Boot PetClinicƒvƒƒWƒFƒNƒg—p‚ÌƒJƒXƒ
 - Repository‘w‚ÌJPAƒpƒ^[ƒ“
 - ƒGƒ“ƒeƒBƒeƒBƒNƒ‰ƒX‚ÌÝŒv‹K–ñ
 
-## ? ƒIƒvƒVƒ‡ƒ“ 4. ŽwŽ¦ƒtƒ@ƒCƒ‹‚ÌƒJƒXƒ^ƒ}ƒCƒY
+## ƒIƒvƒVƒ‡ƒ“ 4. ŽwŽ¦ƒtƒ@ƒCƒ‹‚ÌƒJƒXƒ^ƒ}ƒCƒY
 
 ### 4.1 ƒvƒƒWƒFƒNƒgŒÅ—Lƒ‹[ƒ‹‚Ì’Ç‰Á
 
@@ -92,11 +106,16 @@ GitHub Copilot Agentƒ‚[ƒh‚ðŽg—p‚µ‚ÄASpring Boot PetClinicƒvƒƒWƒFƒNƒg—p‚ÌƒJƒXƒ
 - ƒrƒWƒlƒXƒƒWƒbƒN‚ÌView‘w‚Ö‚Ì”z’u
 - ”ñ„§API‚ÌŽg—p
 
-## ?? ƒgƒ‰ƒuƒ‹ƒVƒ…[ƒeƒBƒ“ƒO
+## ƒgƒ‰ƒuƒ‹ƒVƒ…[ƒeƒBƒ“ƒO
 
 ### –â‘è‚ª”­¶‚µ‚½ê‡
 
-1. **ŽwŽ¦ƒtƒ@ƒCƒ‹‚ª¶¬‚³‚ê‚È‚¢ê‡**
+1. **Agent‹@”\‚ª”FŽ¯‚³‚ê‚È‚¢ê‡**
+   - GitHub CopilotŠg’£‹@”\‚ªÅV”Å‚Å‚ ‚é‚±‚Æ‚ðŠm”F
+   - VS Code‚ÌÄ‹N“®‚ðŽŽs
+   - ƒvƒƒ“ƒvƒg‚ðƒVƒ“ƒvƒ‹‚ÈŒ`‚ÅÄŽÀs
+
+2. **ŽwŽ¦ƒtƒ@ƒCƒ‹‚ª¶¬‚³‚ê‚È‚¢ê‡**
    - ƒ[ƒNƒXƒy[ƒX‚ª³‚µ‚­Spring BootƒvƒƒWƒFƒNƒg‚ð”FŽ¯‚µ‚Ä‚¢‚é‚±‚Æ‚ðŠm”F
    - ƒvƒƒ“ƒvƒg‚ðÄŽÀs
    - V‚µ‚¢ƒ`ƒƒƒbƒgƒZƒbƒVƒ‡ƒ“‚ðŠJŽn‚µ‚ÄÄŽŽs

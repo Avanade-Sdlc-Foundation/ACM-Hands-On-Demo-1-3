@@ -9,13 +9,14 @@
 
 Spring Boot PetClinicƒvƒƒWƒFƒNƒg‚ðŽg—p‚µ‚ÄAGitHub Copilot‚Ì‚“x‚È‹@”\‚ðŠˆ—p‚µ‚½ƒhƒLƒ…ƒƒ“ƒg¶¬ƒ[ƒNƒtƒ[‚ðŽÀ‘H‚µ‚Ü‚·BÅV‚ÌCopilot‹@”\‚ðŒø‰Ê“I‚É—˜—p‚·‚é‚½‚ß‚ÉA“KØ‚ÈŠÂ‹«Ý’è‚ªd—v‚Å‚·B
 
-## ? •K{ 1. ŠJ”­ŠÂ‹«‚ÌŠm”F
+## •K{ 1. ŠJ”­ŠÂ‹«‚ÌŠm”F
 
 ### 1.1 Visual Studio Codeƒo[ƒWƒ‡ƒ“Šm”F
 
 1. VS Code‚ð‹N“®‚µ‚Ü‚·
 2. `Help` > `About`‚ðƒNƒŠƒbƒN‚µ‚ÄAƒo[ƒWƒ‡ƒ“î•ñ‚ðŠm”F‚µ‚Ü‚·
 3. ÅV”Åi„§: 1.85ˆÈ~j‚Å‚ ‚é‚±‚Æ‚ðŠm”F‚µ‚Ü‚·
+   - ŒÃ‚¢ƒo[ƒWƒ‡ƒ“‚Ìê‡‚ÍA`Help` > `Check for Updates`‚ÅƒAƒbƒvƒf[ƒg‚µ‚Ä‚­‚¾‚³‚¢
 
 ### 1.2 GitHub CopilotŠg’£‹@”\‚ÌŠm”F
 
@@ -23,6 +24,10 @@ Spring Boot PetClinicƒvƒƒWƒFƒNƒg‚ðŽg—p‚µ‚ÄAGitHub Copilot‚Ì‚“x‚È‹@”\‚ðŠˆ—p‚µ‚
 2. ˆÈ‰º‚ÌŠg’£‹@”\‚ªƒCƒ“ƒXƒg[ƒ‹E—LŒø‰»‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ðŠm”F‚µ‚Ü‚·F
    - **GitHub Copilot** (•K{)
    - **GitHub Copilot Chat** (•K{)
+   
+   Šg’£‹@”\‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡F
+   - ŒŸõƒ{ƒbƒNƒX‚ÅuGitHub Copilotv‚ðŒŸõ
+   - uInstallvƒ{ƒ^ƒ“‚ðƒNƒŠƒbƒN‚µ‚ÄƒCƒ“ƒXƒg[ƒ‹
 3. ŠeŠg’£‹@”\‚ªÅV”Å‚Å‚ ‚é‚±‚Æ‚ðŠm”F‚µA•K—v‚É‰ž‚¶‚ÄXV‚µ‚Ü‚·
 
 ### 1.3 GitHubƒAƒJƒEƒ“ƒg‚Æƒ‰ƒCƒZƒ“ƒXŠm”F
@@ -31,7 +36,7 @@ Spring Boot PetClinicƒvƒƒWƒFƒNƒg‚ðŽg—p‚µ‚ÄAGitHub Copilot‚Ì‚“x‚È‹@”\‚ðŠˆ—p‚µ‚
 2. VS Code‚ÅGitHubƒAƒJƒEƒ“ƒg‚ÉƒTƒCƒ“ƒCƒ“‚µ‚Ä‚¢‚é‚±‚Æ‚ðŠm”F‚µ‚Ü‚·
    - `View` > `Command Palette` > `GitHub: Sign In`
 
-## ? •K{ 2. ƒvƒƒWƒFƒNƒg‚Ì€”õ
+## •K{ 2. ƒvƒƒWƒFƒNƒg‚Ì€”õ
 
 ### 2.1 Spring Boot PetClinicƒvƒƒWƒFƒNƒg‚ÌŠm”F
 
@@ -52,17 +57,40 @@ Spring Boot PetClinicƒvƒƒWƒFƒNƒg‚ðŽg—p‚µ‚ÄAGitHub Copilot‚Ì‚“x‚È‹@”\‚ðŠˆ—p‚µ‚
 - `vet/VetController.java`
 - `pet/PetController.java`
 
-## ? •K{ 3. GitHub Copilot Chat‚Ì‹N“®‚Æ“®ìŠm”F
+## •K{ 3. ì‹Æ—pƒuƒ‰ƒ“ƒ`‚Ìì¬
 
-### 3.1 Copilot Chat‚Ì‹N“®
+### 3.1 V‚µ‚¢ƒuƒ‰ƒ“ƒ`‚Ìì¬
 
-1. VS CodeƒTƒCƒhƒo[‚ÌCopilot ChatƒAƒCƒRƒ“‚ðƒNƒŠƒbƒN‚µ‚Ü‚·
-   ![Copilot Chat Icon](images/chat-icon.png)
+‰‰K‚Å‚Ì•ÏX‚ªƒƒCƒ“ƒuƒ‰ƒ“ƒ`‚É‰e‹¿‚·‚é‚±‚Æ‚ð–h‚®‚½‚ßAê—p‚Ìì‹Æƒuƒ‰ƒ“ƒ`‚ðì¬‚µ‚Ü‚·B
+
+1. Œ»Ý‚ÌGitó‘Ô‚ðŠm”F‚µ‚Ü‚·F
+   ```bash
+   git status
+   ```
+   –¢ƒRƒ~ƒbƒg‚Ì•ÏX‚ª‚ ‚éê‡‚ÍAƒRƒ~ƒbƒg‚Ü‚½‚Ístash‚µ‚Ä‚­‚¾‚³‚¢B
+
+2. VS Code‚Ìƒ^[ƒ~ƒiƒ‹‚ðŠJ‚«‚Ü‚·i`Ctrl+Shift+`` ‚Ü‚½‚Í `View` > `Terminal`j
+3. ˆÈ‰º‚ÌƒRƒ}ƒ“ƒh‚ÅV‚µ‚¢ƒuƒ‰ƒ“ƒ`‚ðì¬EØ‚è‘Ö‚¦‚µ‚Ü‚·F
+   ```bash
+   git checkout -b handson-copilot-docs
+   ```
+4. ƒuƒ‰ƒ“ƒ`‚ª³‚µ‚­ì¬‚³‚ê‚½‚±‚Æ‚ðŠm”F‚µ‚Ü‚·F
+   ```bash
+   git branch
+   ```
+   `* handson-copilot-docs` ‚Æ•\Ž¦‚³‚ê‚é‚±‚Æ‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢B
+
+## •K{ 4. GitHub Copilot Chat‚Ì‹N“®‚Æ“®ìŠm”F
+
+### 4.1 Copilot Chat‚Ì‹N“®
+
+1. VS CodeƒTƒCƒhƒo[‚ÌCopilot ChatƒAƒCƒRƒ“iƒƒbƒZ[ƒWƒoƒuƒ‹‚Ì‚æ‚¤‚ÈƒAƒCƒRƒ“j‚ðƒNƒŠƒbƒN‚µ‚Ü‚·
+   ![GitHub Copilot Chat ƒAƒCƒRƒ“ - ƒTƒCƒhƒo[‚Ì‰E‘¤‚É‚ ‚éƒ`ƒƒƒbƒgƒoƒuƒ‹Œ`ó‚ÌƒAƒCƒRƒ“](images/chat-icon.png)
 2. ‚Ü‚½‚ÍAƒL[ƒ{[ƒhƒVƒ‡[ƒgƒJƒbƒg‚ðŽg—p‚µ‚Ü‚·F
    - Windows/Linux: `Ctrl+Alt+I`
    - Mac: `Cmd+Option+I`
 
-### 3.2 Šî–{“®ìŠm”F
+### 4.2 Šî–{“®ìŠm”F
 
 1. Copilot Chat‚ÉˆÈ‰º‚ÌƒeƒXƒgƒƒbƒZ[ƒW‚ð“ü—Í‚µ‚Ü‚·F
    ```
@@ -71,21 +99,21 @@ Spring Boot PetClinicƒvƒƒWƒFƒNƒg‚ðŽg—p‚µ‚ÄAGitHub Copilot‚Ì‚“x‚È‹@”\‚ðŠˆ—p‚µ‚
 2. “KØ‚È‰ž“š‚ª•Ô‚é‚±‚Æ‚ðŠm”F‚µ‚Ü‚·
 3. ƒ[ƒNƒXƒy[ƒX‚Ìƒtƒ@ƒCƒ‹‚ð”FŽ¯‚µ‚Ä‚¢‚é‚±‚Æ‚ðŠm”F‚µ‚Ü‚·
 
-## ? ŽQl 4. ’Ç‰ÁÝ’èiƒIƒvƒVƒ‡ƒ“j
+## ŽQl 5. ’Ç‰ÁÝ’èiƒIƒvƒVƒ‡ƒ“j
 
-### 4.1 ƒ[ƒNƒXƒy[ƒX‚ÌÅ“K‰»
+### 5.1 ƒ[ƒNƒXƒy[ƒX‚ÌÅ“K‰»
 
 1. VS Code‚ÅƒtƒHƒ‹ƒ_[‘S‘Ì‚ðŠJ‚¢‚Ä‚¢‚é‚±‚Æ‚ðŠm”F‚µ‚Ü‚·
 2. JavaƒvƒƒWƒFƒNƒg‚Ìê‡AJavaŠg’£‹@”\ƒpƒbƒN‚à—LŒø‚É‚·‚é‚±‚Æ‚ð„§‚µ‚Ü‚·
 
-### 4.2 CopilotÝ’è‚ÌŠm”F
+### 5.2 CopilotÝ’è‚ÌŠm”F
 
 1. `File` > `Preferences` > `Settings`‚ðŠJ‚«‚Ü‚·
 2. `Copilot`‚ÅŒŸõ‚µAˆÈ‰º‚ÌÝ’è‚ðŠm”F‚µ‚Ü‚·F
    - `Copilot: Enable` - —LŒø‚É‚È‚Á‚Ä‚¢‚é‚±‚Æ
    - `Copilot Chat: Enable` - —LŒø‚É‚È‚Á‚Ä‚¢‚é‚±‚Æ
 
-## ?? ƒgƒ‰ƒuƒ‹ƒVƒ…[ƒeƒBƒ“ƒO
+## ƒgƒ‰ƒuƒ‹ƒVƒ…[ƒeƒBƒ“ƒO
 
 ### ‚æ‚­‚ ‚é–â‘è
 
